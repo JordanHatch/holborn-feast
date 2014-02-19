@@ -16,12 +16,14 @@ gem 'turbolinks'
 gem 'formtastic'
 gem 'gravatarify', '~> 3.0.0'
 
+gem 'unicorn'
+gem 'foreman'
+
 group :doc do
   # bundle exec rake doc:rails generates the API under doc/api.
   gem 'sdoc', require: false
 end
 
-gem 'unicorn'
 group :test do
   gem "factory_girl_rails", "~> 4.0"
   gem "minitest-spec-rails"
