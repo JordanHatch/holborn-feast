@@ -1,7 +1,12 @@
-require 'test_helper'
+require "test_helper"
 
-class EateriesControllerTest < ActionController::TestCase
-  # test "the truth" do
-  #   assert true
-  # end
+describe EateriesController do
+
+  it "redirects to the sign in form for an unauthenticated request" do
+    @controller.session[:user_id] = nil
+    get :index
+
+    assert_redirected_to new_session_path
+  end
+
 end
