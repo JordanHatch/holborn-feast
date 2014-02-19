@@ -25,7 +25,7 @@ class EateriesController < ApplicationController
 
   private
   def find_eatery
-    @eatery = Eatery.find_by_slug(params[:id]) || error_404
+    @eatery = Eatery.friendly.find(params[:id]) || error_404
   end
 
   def eatery_params
