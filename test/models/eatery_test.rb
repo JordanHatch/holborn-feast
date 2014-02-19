@@ -30,4 +30,15 @@ describe Eatery do
     refute eatery.valid?
     assert eatery.errors.has_key?(:name)
   end
+
+  it "returns users who have recommended it" do
+    eatery = create(:eatery)
+    user = create(:user)
+    recommendation = eatery.recommendations.create!(user: user)
+
+    eatery.reload
+
+    assert_equal [user], eatery.recommended_by
+  end
+
 end

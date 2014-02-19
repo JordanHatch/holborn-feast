@@ -5,6 +5,9 @@ class User < ActiveRecord::Base
   GDS_EMAIL_ADDRESS_BASE = /@digital\.cabinet\-office\.gov\.uk\z/
   before_create :ensure_gds_email
 
+  has_many :recommendations
+  has_many :recommended_eateries, through: :recommendations, source: :eatery
+
   def self.find_or_create_from_auth_hash(auth_hash)
     existing_user = self.where(email: auth_hash[:info][:email]).first
     atts = {

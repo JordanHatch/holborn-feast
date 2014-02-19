@@ -37,4 +37,14 @@ describe User do
     end
   end
 
+  it "returns eateries it has recommended" do
+    user = create(:user)
+    eatery = create(:eatery)
+    recommendation = user.recommendations.create!(eatery: eatery)
+
+    user.reload
+
+    assert_equal [eatery], user.recommended_eateries
+  end
+
 end
