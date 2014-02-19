@@ -37,6 +37,11 @@ GEM
     coffee-script-source (1.7.0)
     erubis (2.7.0)
     execjs (2.0.2)
+    factory_girl (4.1.0)
+      activesupport (>= 3.0.0)
+    factory_girl_rails (4.1.0)
+      factory_girl (~> 4.1.0)
+      railties (>= 3.0.0)
     formtastic (2.2.1)
       actionpack (>= 3.0)
     friendly_id (5.0.3)
@@ -52,8 +57,14 @@ GEM
     mail (2.5.4)
       mime-types (~> 1.16)
       treetop (~> 1.4.8)
+    metaclass (0.0.1)
     mime-types (1.25.1)
     minitest (4.7.5)
+    minitest-spec-rails (4.7.6)
+      minitest (~> 4.7)
+      rails (>= 3.0, < 4.1)
+    mocha (0.13.0)
+      metaclass (~> 0.0.1)
     multi_json (1.8.4)
     pg (0.14.1)
     polyglot (0.3.3)
@@ -117,10 +128,13 @@ PLATFORMS
 
 DEPENDENCIES
   coffee-rails (~> 4.0.0)
+  factory_girl_rails (~> 4.0)
   formtastic
   friendly_id (~> 5.0.0)
   gravatarify (~> 3.0.0)
   jquery-rails
+  minitest-spec-rails
+  mocha
   pg
   rails (= 4.0.2)
   sass-rails (~> 4.0.0)

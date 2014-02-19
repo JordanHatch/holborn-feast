@@ -22,3 +22,8 @@ group :doc do
 end
 
 gem 'unicorn'
+group :test do
+  gem "factory_girl_rails", "~> 4.0"
+  gem "minitest-spec-rails"
+  gem "mocha", require: false
+end
