@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
 <head>
-  <title>Holborn Feast</title>
+  <title>The Holborn Feast</title>
   <%= stylesheet_link_tag    "application", media: "all", "data-turbolinks-track" => true %>
   <%= javascript_include_tag "application", "data-turbolinks-track" => true %>
   <%= csrf_meta_tags %>
@@ -17,6 +17,12 @@
 
   <% if user_signed_in? %>
     <p>Welcome, <%= current_user.name %> &bull; <%= link_to "sign out", session_path, method: :delete %></p>
+  <% end %>
+
+  <% if flash.any? %>
+    <% flash.each do |key, message| %>
+      <div class="message message-<%= key %>"><%= message %></div>
+    <% end %>
   <% end %>
 
   <%= yield %>
