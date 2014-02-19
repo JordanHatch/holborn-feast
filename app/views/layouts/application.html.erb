@@ -16,7 +16,10 @@
   </header>
 
   <% if user_signed_in? %>
-    <p>Welcome, <%= current_user.name %> &bull; <%= link_to "sign out", session_path, method: :delete %></p>
+    <aside class="user">
+      <%= current_user.name %>
+      <%= link_to "sign out", session_path, :method => :delete, :class => "sign-out" %>
+    </aside>
   <% end %>
 
   <% if flash.any? %>
