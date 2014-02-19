@@ -6,6 +6,20 @@ class EateriesController < ApplicationController
     # index.html.erb
   end
 
+  def new
+    @eatery = Eatery.new
+  end
+
+  def create
+    @eatery = Eatery.new(eatery_params)
+    if @eatery.save
+      flash[:notice] = "Eatery created"
+      redirect_to eatery_path(@eatery)
+    else
+      render action: :new
+    end
+  end
+
   def show
     # show.html.erb
   end

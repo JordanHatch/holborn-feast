@@ -1,0 +1,9 @@
+<%= semantic_form_for @eatery do |f| %>
+  <%= f.inputs do %>
+    <%= f.input :name, placeholder: "eg. Neo Canteen" %>
+    <%= f.input :lat, label: "Latitude", placeholder: "eg. 51.517238" %>
+    <%= f.input :lon, label: "Longitude", placeholder: "eg. -0.120561" %>
+  <% end %>
+
+  <%= f.actions %>
+<% end %>
