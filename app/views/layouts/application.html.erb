@@ -15,6 +15,10 @@
     <h1><%= link_to "The Holborn Feast", eateries_path %></h1>
   </header>
 
+  <% if user_signed_in? %>
+    <p>Welcome, <%= current_user.name %> &bull; <%= link_to "sign out", session_path, method: :delete %></p>
+  <% end %>
+
   <%= yield %>
 </main>
 
