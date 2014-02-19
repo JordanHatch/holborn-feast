@@ -1,0 +1,7 @@
+<section id="eateries">
+  <ul>
+    <% @eateries.each do |eatery| %>
+      <li><%= link_to eatery.name, eatery_path(eatery) %></li>
+    <% end %>
+  </ul>
+</section>

@@ -1,0 +1,25 @@
+<section class="eatery">
+
+  <h1><%= @eatery.name %></h1>
+  <ul class="lead-metadata">
+    <li>Mexican</li>
+    <li>5 minutes walk</li>
+    <li>££</li>
+  </ul>
+
+  <div class="map max-width-320" style="background-image: url('http://staticmap.openstreetmap.de/staticmap.php?center=<%= @eatery.lat %>,<%= @eatery.lon %>&amp;zoom=18&amp;size=640x360&amp;maptype=mapnik&amp;markers=<%= @eatery.lat %>,<%= @eatery.lon %>,lightblue1')"></div>
+  <div class="map max-width-640" style="background-image: url('http://staticmap.openstreetmap.de/staticmap.php?center=<%= @eatery.lat %>,<%= @eatery.lon %>&amp;zoom=18&amp;size=1280x440&amp;maptype=mapnik&amp;markers=<%= @eatery.lat %>,<%= @eatery.lon %>,lightblue1')"></div>
+  <div class="map max-width-960" style="background-image: url('http://staticmap.openstreetmap.de/staticmap.php?center=<%= @eatery.lat %>,<%= @eatery.lon %>&amp;zoom=18&amp;size=1920x220&amp;maptype=mapnik&amp;markers=<%= @eatery.lat %>,<%= @eatery.lon %>,lightblue1')"></div>
+
+
+  <div class="recommendations">
+    <p>Recommended by</p>
+    <ul>
+
+    </ul>
+  </div>
+
+  <p class="actions"><%= link_to "Edit", edit_eatery_path(@eatery) %></p>
+
+</section>
+
