@@ -1,0 +1,45 @@
+.formtastic {
+  fieldset.actions {
+    padding: 0;
+  }
+
+  .input {
+    margin: 1rem 0;
+    padding: 0;
+
+    .label, input {
+      @include border-box;
+      display: block;
+      width: 100%;
+    }
+
+    .label {
+      padding: 0.5rem 0;
+    }
+
+    &.stringish {
+      input, textarea {
+        font-size: 1.1rem;
+        padding: 0.4rem;
+        border: 1px solid #bbb;
+      }
+    }
+
+    &.error {
+      input {
+        border: 2px solid $intentError;
+      }
+    }
+  }
+
+  .actions {
+    margin: 1rem 0;
+  }
+
+  .inline-errors {
+    margin-left: 0;
+    background: $intentError;
+    color: #fff;
+    padding: 0.5rem;
+  }
+}
