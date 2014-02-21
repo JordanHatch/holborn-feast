@@ -39,7 +39,9 @@ class EateriesController < ApplicationController
 
   private
   def find_eatery
-    @eatery = Eatery.friendly.find(params[:id]) || error_404
+    @eatery = Eatery.friendly.find(params[:id])
+  rescue ActiveRecord::RecordNotFound
+    error_404
   end
 
   def eatery_params

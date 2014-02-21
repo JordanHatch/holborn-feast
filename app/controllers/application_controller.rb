@@ -17,6 +17,7 @@ class ApplicationController < ActionController::Base
   end
 
   def error_404
-    raise ActionController::RoutingError.new('Not Found')
+    render "public/404.html", status: 404, layout: false
+    false
   end
 end
