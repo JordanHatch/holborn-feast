@@ -31,4 +31,78 @@ describe EateriesController do
     end
   end
 
+  describe "GET show" do
+    it "returns a 404 for an eatery which does not exist" do
+      get :show, id: "blah"
+
+      assert response.not_found?
+    end
+
+    it "finds an eatery from its friendly id" do
+      stub_view_rendering
+
+      stub_eatery = build(:eatery)
+
+      friendly_scope = mock("friendly scope")
+      Eatery.expects(:friendly).returns(friendly_scope)
+      friendly_scope.expects(:find).with("a-slug").returns(stub_eatery)
+
+      get :show, id: "a-slug"
+      assert_equal stub_eatery, assigns(:eatery)
+    end
+
+    it "renders the show template" do
+      eatery = create(:eatery)
+
+      get :show, id: eatery.to_param
+
+      assert response.ok?
+      assert_template "show"
+    end
+  end
+
+  describe "GET new" do
+    it "assigns a blank eatery" do
+      get :new
+
+      assert assigns(:eatery).is_a?(Eatery)
+      refute assigns(:eatery).persisted?
+    end
+
+    it "renders the new template" do
+      get :new
+
+      assert response.ok?
+      assert_template "new"
+    end
+  end
+
+  describe "POST create" do
+    before(:each) do
+      @valid_atts = {
+        "name" => "The Rose and Crown",
+        "lat" => "50.0000",
+        "lon" => "-1.0000"
+      }
+    end
+
+    it "creates a new eatery given valid attributes" do
+      post :create, eatery: @valid_atts
+
+      eatery = assigns(:eatery)
+
+      assert eatery.persisted?
+      assert_redirected_to eatery_path(eatery.to_param)
+    end
+
+    it "renders the new template when the eatery does not save" do
+      post :create, eatery: @valid_atts.merge("name" => "")
+
+      eatery = assigns(:eatery)
+
+      refute eatery.persisted?
+      assert_template "new"
+    end
+  end
+
 end
