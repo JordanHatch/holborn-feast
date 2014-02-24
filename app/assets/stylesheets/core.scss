@@ -5,9 +5,11 @@ $coreBorder: #00606d;
 $intentError: #cf3f43;
 $intentNotice: #7cb647;
 
+$fontStack: Helvetica, Arial, sans-serif;
+
 body {
   background: #fdfdfd;
-  font-family: Helvetica, Arial, sans-serif;
+  font-family: $fontStack;
   font-size: 100%;
   line-height: 1em;
 }
