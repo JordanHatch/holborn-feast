@@ -12,14 +12,24 @@
   <div class="map max-width-960" style="background-image: url('http://staticmap.openstreetmap.de/staticmap.php?center=<%= @eatery.lat %>,<%= @eatery.lon %>&amp;zoom=18&amp;size=1920x220&amp;maptype=mapnik&amp;markers=<%= @eatery.lat %>,<%= @eatery.lon %>,lightblue1')"></div>
 
 
+  <% if @eatery.recommended_by.any? %>
   <div class="recommendations">
     <p>Recommended by</p>
     <ul>
-
+      <% @eatery.recommended_by.each do |user| %>
+        <%= recommendation_icon user.name, user.email %>
+      <% end %>
     </ul>
   </div>
+  <% end %>
 
   <p class="resource-actions">
+    <% if current_user.has_recommended?(@eatery) %>
+      <%= link_to "Remove recommendation", eatery_recommended_path(@eatery), :method => :delete, :class => "btn" %>
+    <% else %>
+      <%= link_to "Recommend", eatery_recommended_path(@eatery), :method => :put, :class => "btn" %>
+    <% end %>
+
     <%= link_to "Edit", edit_eatery_path(@eatery) %>
   </p>
 

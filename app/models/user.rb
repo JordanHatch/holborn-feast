@@ -8,6 +8,10 @@ class User < ActiveRecord::Base
   has_many :recommendations
   has_many :recommended_eateries, through: :recommendations, source: :eatery
 
+  def has_recommended?(eatery)
+    recommended_eateries.where(id: eatery.id).any?
+  end
+
   def self.find_or_create_from_auth_hash(auth_hash)
     existing_user = self.where(email: auth_hash[:info][:email]).first
     atts = {

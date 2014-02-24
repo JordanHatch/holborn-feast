@@ -105,4 +105,49 @@ describe EateriesController do
     end
   end
 
+  describe "GET edit" do
+    it "returns a 404 for an eatery which does not exist" do
+      get :edit, id: "blah"
+
+      assert response.not_found?
+    end
+
+    it "renders the edit template" do
+      eatery = create(:eatery)
+
+      get :edit, id: eatery.to_param
+
+      assert response.ok?
+      assert_template "edit"
+    end
+  end
+
+  describe "PUT update" do
+    it "returns a 404 for an eatery which does not exist" do
+      put :update, id: "blah", eatery: { "name" => "Foo" }
+
+      assert response.not_found?
+    end
+
+    it "updates an eatery given valid parameters" do
+      eatery = create(:eatery)
+      put :update, id: eatery.to_param, eatery: { "name" => "The Fox and Hound" }
+
+      assert_redirected_to eatery_path(eatery)
+
+      eatery.reload
+      assert_equal "The Fox and Hound", eatery.name
+    end
+
+    it "renders the edit template given invalid parameters" do
+      eatery = create(:eatery, name: "The Black Bull")
+      put :update, id: eatery.to_param, eatery: { "name" => "" }
+
+      assert_template "edit"
+
+      eatery.reload
+      assert_equal "The Black Bull", eatery.name
+    end
+  end
+
 end
