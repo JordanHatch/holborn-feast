@@ -32,3 +32,8 @@ group :test do
   gem "minitest-spec-rails"
   gem "mocha", require: false
 end
+
+group :production do
+  # heroku
+  gem 'rails_12factor'
+end
