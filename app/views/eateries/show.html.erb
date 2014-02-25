@@ -12,7 +12,7 @@
     <p>Recommended by</p>
     <ul>
       <% @eatery.recommended_by.each do |user| %>
-        <%= recommendation_icon user.name, user.email %>
+        <%= recommendation_icon user %>
       <% end %>
     </ul>
   </div>

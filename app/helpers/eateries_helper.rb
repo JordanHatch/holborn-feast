@@ -1,9 +1,9 @@
 module EateriesHelper
 
-  def recommendation_icon(name, email)
-    style = "background-image: url('" + gravatar_url(email, :size => 64).html_safe + "')"
-    content_tag :li, { style: style } do
-      name
+  def recommendation_icon(user)
+    style = "background-image: url('" + user.image_url + "')"
+    content_tag :li, { style: style, title: user.name } do
+      user.name
     end
   end
 end
