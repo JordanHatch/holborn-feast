@@ -6,7 +6,8 @@ describe Eatery do
     {
       name: "Chipotle",
       lat: 51.514782,
-      lon: -0.129747
+      lon: -0.129747,
+      description: "This place is good."
     }
   end
 

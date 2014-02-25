@@ -82,7 +82,8 @@ describe EateriesController do
       @valid_atts = {
         "name" => "The Rose and Crown",
         "lat" => "50.0000",
-        "lon" => "-1.0000"
+        "lon" => "-1.0000",
+        "description" => "Classic British pub food."
       }
     end
 
@@ -93,6 +94,15 @@ describe EateriesController do
 
       assert eatery.persisted?
       assert_redirected_to eatery_path(eatery.to_param)
+    end
+
+    it "only includes valid parameters" do
+      mock_eatery = mock("Eatery", save: true)
+      Eatery.expects(:new).with {|hash|
+        hash.keys.sort == ["description", "lat", "lon", "name"]
+      }.returns(mock_eatery)
+
+      post :create, eatery: @valid_atts.merge("evil" => "value")
     end
 
     it "renders the new template when the eatery does not save" do

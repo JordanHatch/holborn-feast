@@ -18,6 +18,8 @@
   </div>
   <% end %>
 
+  <div class="description"><%= simple_format @eatery.description %></div>
+
   <p class="resource-actions">
     <% if current_user.has_recommended?(@eatery) %>
       <%= link_to "Remove recommendation", eatery_recommended_path(@eatery), :method => :delete, :class => "btn" %>

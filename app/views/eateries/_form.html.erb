@@ -3,6 +3,7 @@
     <%= f.input :name, placeholder: "eg. Neo Canteen" %>
     <%= f.input :lat, label: "Latitude", placeholder: "eg. 51.517238" %>
     <%= f.input :lon, label: "Longitude", placeholder: "eg. -0.120561" %>
+    <%= f.input :description, input_html: { rows: 15 } %>
   <% end %>
 
   <%= f.actions %>
