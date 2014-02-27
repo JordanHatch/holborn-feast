@@ -15,13 +15,10 @@ describe EateriesController do
 
   describe "GET index" do
     it "assigns a collection of eateries" do
-      stub_view_rendering # we're not testing the view here
-
-      stub_eatery = build(:eatery)
-      Eatery.expects(:all).returns([stub_eatery])
+      eatery = create(:eatery)
       get :index
 
-      assert_equal [stub_eatery], assigns(:eateries)
+      assert_equal [eatery], assigns(:eateries)
     end
 
     it "renders the index template" do
