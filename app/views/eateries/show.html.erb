@@ -22,7 +22,7 @@
 
   <p class="resource-actions">
     <% if current_user.has_recommended?(@eatery) %>
-      <%= link_to "Remove recommendation", eatery_recommended_path(@eatery), :method => :delete, :class => "btn" %>
+      <%= link_to "Unrecommend", eatery_recommended_path(@eatery), :method => :delete, :class => "btn" %>
     <% else %>
       <%= link_to "Recommend", eatery_recommended_path(@eatery), :method => :put, :class => "btn" %>
     <% end %>
