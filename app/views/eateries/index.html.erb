@@ -3,7 +3,12 @@
 
   <ul>
     <% @eateries.each do |eatery| %>
-      <li><%= link_to eatery.name, eatery_path(eatery) %></li>
+      <li>
+        <%= link_to eatery_path(eatery) do %>
+          <%= eatery.name %>
+          <span class="recommendation-count"><%= eatery.recommendations.count %> ♥︎</span>
+        <% end %>
+      </li>
     <% end %>
   </ul>
 

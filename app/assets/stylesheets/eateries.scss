@@ -23,6 +23,25 @@
       &:hover {
         background: $coreColour;
         color: #fff;
+
+        .recommendation-count {
+          color: $coreColour;
+          background: #fff;
+        }
+      }
+
+      .recommendation-count {
+        display: inline-block;
+        float: right;
+
+        @include border-radius(0.5rem);
+        background: $coreColour;
+        color: #fff;
+
+        font-size: 0.9rem;
+        line-height: 0.9rem;
+        padding: 0.5rem 0.7rem 0.4rem;
+        margin: -0.4rem 0 0;
       }
     }
   }

@@ -2,7 +2,7 @@ class EateriesController < ApplicationController
   before_filter :find_eatery, only: [:show, :edit, :update]
 
   def index
-    @eateries = Eatery.in_name_order.all
+    @eateries = Eatery.in_name_order.includes(:recommendations)
     # index.html.erb
   end
 
