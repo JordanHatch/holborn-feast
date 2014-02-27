@@ -29,8 +29,10 @@ end
 
 group :test do
   gem "factory_girl_rails", "~> 4.0"
+  gem "capybara-webkit"
   gem "minitest-spec-rails"
   gem "mocha", require: false
+  gem "webmock", require: false
 end
 
 group :production do
