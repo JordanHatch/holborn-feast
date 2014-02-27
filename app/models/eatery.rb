@@ -6,4 +6,6 @@ class Eatery < ActiveRecord::Base
   has_many :recommended_by, through: :recommendations, source: :user
 
   validates :name, presence: true
+
+  scope :in_name_order, order(name: :asc)
 end
