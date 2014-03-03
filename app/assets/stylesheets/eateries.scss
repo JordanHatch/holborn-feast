@@ -1,4 +1,6 @@
 .eateries {
+  margin-bottom: 1rem;
+
   h1 {
     margin: 1rem;
   }
@@ -119,7 +121,8 @@
 
 .eateries, .eatery {
   .resource-actions {
-    margin: 1em;
+    margin: 0.5em;
+    text-align: right;
 
     a {
       @extend .btn;

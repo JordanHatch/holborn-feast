@@ -39,21 +39,38 @@ header {
 
 .user {
   font-size: 0.9rem;
-  line-height: 0.95rem;
-  background: #f8f8f8;
-  border-bottom: 1px solid #d9d9d9;
-  padding: 0.6rem 1rem;
-  text-align: right;
+  line-height: 2rem;
+  text-align: center;
+
+  border-top: 1px solid #eee;
+  margin-top: 2rem;
+  padding: 1rem;
 
   a {
     display: inline-block;
-    padding-left: 0.5rem;
+    padding-left: 0.8rem;
     color: #888;
 
     &:hover {
       color: #333;
     }
   }
+}
+
+.user-with-image {
+  display: inline;
+  line-height: 2rem;
+  .image {
+    display: inline-block;
+    border-radius: 50%;
+    background: #ccc;
+    width: 2rem;
+    height: 2rem;
+    background-size: 100%;
+    vertical-align: middle;
+    margin-right: 0.85rem;
+  }
+  vertical-align: middle;
 }
 
 h1, h2, h3, h4 { font-weight: bold; line-height: 1.6rem; padding: 0.5rem 0; }

@@ -16,13 +16,6 @@
     <h1><%= link_to "The Holborn Feast", eateries_path %></h1>
   </header>
 
-  <% if user_signed_in? %>
-    <aside class="user">
-      <%= current_user.name %>
-      <%= link_to "sign out", session_path, :method => :delete, :class => "sign-out" %>
-    </aside>
-  <% end %>
-
   <% if flash.any? %>
     <% flash.each do |key, message| %>
       <div class="message message-<%= key %>"><%= message %></div>
@@ -30,6 +23,13 @@
   <% end %>
 
   <%= yield %>
+
+  <% if user_signed_in? %>
+    <aside class="user">
+      <%= user_with_image(current_user) %>
+      <%= link_to "sign out", session_path, :method => :delete, :class => "sign-out" %>
+    </aside>
+  <% end %>
 </main>
 
 </body>
