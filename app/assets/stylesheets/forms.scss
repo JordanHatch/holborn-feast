@@ -36,6 +36,11 @@
     margin: 1rem 0;
   }
 
+  .action.link_action {
+    padding: 0.5rem;
+    line-height: 1.1rem;
+  }
+
   .inline-errors {
     margin-left: 0;
     background: $intentError;

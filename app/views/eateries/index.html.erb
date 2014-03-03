@@ -1,5 +1,7 @@
 <section class="eateries">
-  <h1>All eateries</h1>
+  <p class="resource-actions">
+    <%= link_to "Add", new_eatery_path %>
+  </p>
 
   <ul>
     <% @eateries.each do |eatery| %>
@@ -11,8 +13,4 @@
       </li>
     <% end %>
   </ul>
-
-  <p class="resource-actions">
-    <%= link_to "Add a new eatery", new_eatery_path %>
-  </p>
 </section>
