@@ -1,5 +1,8 @@
 HolbornFeast::Application.routes.draw do
   resources :eateries do
+    collection do
+      get :random
+    end
 
     put :recommended, to: "recommendations#update"
     delete :recommended, to: "recommendations#destroy"

@@ -20,6 +20,11 @@ class EateriesController < ApplicationController
     end
   end
 
+  def random
+    @eatery = Eatery.in_random_order.first
+    redirect_to eatery_path(@eatery)
+  end
+
   def show
     # show.html.erb
   end

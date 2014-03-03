@@ -8,4 +8,5 @@ class Eatery < ActiveRecord::Base
   validates :name, presence: true
 
   scope :in_name_order, -> { order(name: :asc) }
+  scope :in_random_order, -> { order("RANDOM()") }
 end
