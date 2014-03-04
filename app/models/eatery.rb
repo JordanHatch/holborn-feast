@@ -2,6 +2,8 @@ class Eatery < ActiveRecord::Base
   extend FriendlyId
   friendly_id :name, use: :slugged
 
+  belongs_to :cuisine_type
+
   has_many :recommendations
   has_many :recommended_by, through: :recommendations, source: :user
 

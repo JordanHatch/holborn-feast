@@ -42,4 +42,13 @@ describe Eatery do
     assert_equal [user], eatery.recommended_by
   end
 
+  it "can have a cuisine type" do
+    cuisine_type = create(:cuisine_type)
+    eatery = Eatery.create!(valid_atts.merge(cuisine_type_id: cuisine_type.id))
+
+    eatery.reload
+
+    assert_equal cuisine_type.name, eatery.cuisine_type.name
+  end
+
 end
