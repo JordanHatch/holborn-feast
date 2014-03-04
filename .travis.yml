@@ -1,0 +1,9 @@
+language: ruby
+rvm:
+  - 2.0.0
+services: postgres
+before_script:
+  - rm config/database.yml
+  - cp config/database.travis.yml config/database.yml
+  - psql -c 'create database feast_test;' -U postgres
+  - bundle exec rake db:migrate
